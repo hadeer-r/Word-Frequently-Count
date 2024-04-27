@@ -10,15 +10,8 @@ find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 qt_add_executable(appWord_Frequently_Count
     src/main.cpp
     src/BST/binary_search_tree.cpp src/BST/binary_search_tree.hpp
-<<<<<<< HEAD
-    src/manageWords/Words.hpp
-    src/manageWords/Words.cpp
-    src/manageText/upload_text.hpp
-    src/manageText/upload_text.cpp
-=======
     src/manageWords/Words.cpp src/manageWords/Words.hpp
     src/manageText/upload_text.cpp src/manageText/upload_text.hpp
->>>>>>> dd6454fc022512871988bc4fcad0028eaea993dc
 )
 
 if(QT_KNOWN_POLICY_QTP0001)
