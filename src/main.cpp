@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include<iostream>
-#include"Words.hpp"
+#include "Words.hpp"
 #include<vector>
 using namespace std;
 

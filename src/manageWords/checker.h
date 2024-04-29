@@ -1,6 +1,7 @@
 #ifndef CHECKER_H
 #define CHECKER_H
 #include <string>
+#include "trie.h"
 using namespace std;
 class Checker
 {

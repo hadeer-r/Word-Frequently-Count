@@ -2,9 +2,9 @@
 #define WORDS_HPP
 #include <unordered_map>
 #include <vector>
-#include"string"
-#include"upload_text.hpp"
-#include"binary_search_tree.hpp"
+#include "string"
+#include "binary_search_tree.hpp"
+#include "../manageText/upload_text.hpp"
 using namespace std;
 
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include "trienode.h"
 using namespace std;
 class trie {
 private:

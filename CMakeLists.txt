@@ -10,11 +10,17 @@ find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 qt_add_executable(appWord_Frequently_Count
     src/main.cpp
     src/BST/binary_search_tree.cpp src/BST/binary_search_tree.hpp
-    src/manageWords/Words.cpp src/manageWords/Words.hpp
     src/manageText/upload_text.cpp src/manageText/upload_text.hpp
-    src/checker.cpp src/checker.h
-    src/trie.cpp src/trie.h
-    src/trienode.cpp src/trienode.h
+    src/manageWords/Words.cpp src/manageWords/Words.hpp
+    src/manageWords/trienode.cpp src/manageWords/trienode.h
+    src/manageWords/trie.cpp src/manageWords/trie.h
+    src/manageWords/checker.cpp src/manageWords/checker.h
+
+)
+target_include_directories(appWord_Frequently_Count PUBLIC
+    src/BST/
+    src/mangeText/
+    src/manageWords/
 )
 
 if(QT_KNOWN_POLICY_QTP0001)
