@@ -12,6 +12,9 @@ qt_add_executable(appWord_Frequently_Count
     src/BST/binary_search_tree.cpp src/BST/binary_search_tree.hpp
     src/manageWords/Words.cpp src/manageWords/Words.hpp
     src/manageText/upload_text.cpp src/manageText/upload_text.hpp
+    src/checker.cpp src/checker.h
+    src/trie.cpp src/trie.h
+    src/trienode.cpp src/trienode.h
 )
 
 if(QT_KNOWN_POLICY_QTP0001)
