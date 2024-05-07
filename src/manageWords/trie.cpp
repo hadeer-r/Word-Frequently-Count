@@ -1,5 +1,6 @@
 #include "trie.h"
 #include"trienode.h"
+
 trie::trie() {
     root = new trieNode();
 }
@@ -22,6 +23,20 @@ void trie::insert(const string& word) {
         }
     }
     current->EndOfWord = true;
+}
+ void trie:: readWordsFromFileAndInsert(const string& path) {
+    ifstream my_file(path);
+    if (!my_file.is_open()) {
+        cerr << "Error: Unable to open file." << endl;
+        return;
+    }
+
+    string word;
+    while (my_file >> word) {
+        insert(word);
+    }
+
+   my_file.close();
 }
 
 bool trie::search(const string& word) {
@@ -59,3 +74,5 @@ bool trie::startsWith(const string& prefix) {
     }
     return true;
 }
+
+
