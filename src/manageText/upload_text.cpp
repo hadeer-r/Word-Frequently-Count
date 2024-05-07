@@ -19,6 +19,7 @@ void UploadText::read_file(string path)
     {
         from_line_to_words(line);
     }
+    my_file.close();
 }
 
 void UploadText::read_paragraph(string paragraph)
@@ -65,6 +66,15 @@ wordMap UploadText::get_wordsMap()
 vecRank UploadText::get_wordsRank()
 {
     return rank;
+}
+
+
+void UploadText::write_inFile(string path,string paragraph){
+    ofstream my_file(path);
+    if(my_file.fail())
+    cout<<"can't open file\n";
+    my_file<<paragraph<<"\n";
+    my_file.close();
 }
 
 //_________________utilities_________________//

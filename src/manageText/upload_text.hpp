@@ -12,7 +12,6 @@ class UploadText
 {
 
 private:
-    int count;
     wordMap words;
     vecRank rank;
 
@@ -33,7 +32,7 @@ public:
      * write in file : updating text in file.txt
      * Or, make new file for user to save his paragraph
      */
-    void write_inFile(string path);
+    void write_inFile(string path,string pargaraph);
 
     //_________________utilities_________________//
     string delete_pun(string word);
