@@ -18,9 +18,9 @@ public:
 
     int search(const string word) const;
 
-    vector<string> rank(vector<string> vecRank);
+    vector<string> rank();
 
-    vector<pair<string,int>> sorted(vector<pair<string, int>> wordSort);
+    vector<pair<string,int>> sorted();
 
 };
 
