@@ -13,12 +13,11 @@ private:
 public:
     trie();
     trie( string path);
-
     void insert(const string& word);
-
     bool search(const string& word);
+  bool startsWith(const string& prefix) const;
+    void dfs(trieNode* node, const string& prefix, vector<string>& suggestions) const;
 
-    bool startsWith(const string& prefix);
     void readWordsFromFileAndInsert(const string& path);
 };
 

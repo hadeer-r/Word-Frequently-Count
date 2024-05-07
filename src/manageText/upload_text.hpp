@@ -26,7 +26,6 @@ public:
     vecRank get_wordsRank();
 
     void from_line_to_words(string line);
-    vector<string> read_words_to_vector(const string& path);
 
 
     /*

@@ -9,8 +9,9 @@ class trieNode
 {
 public:
     trieNode();
-    vector<pair<char, trieNode*>> children;
+    unordered_map<char, trieNode*> children;
     bool EndOfWord;
+
 };
 
 #endif // TRIENODE_H

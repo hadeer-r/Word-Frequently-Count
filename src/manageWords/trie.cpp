@@ -1,6 +1,6 @@
 #include "trie.h"
 #include"trienode.h"
-
+#include"trie.h"
 trie::trie() {
     root = new trieNode();
 }
@@ -8,20 +8,15 @@ trie::trie() {
 void trie::insert(const string& word) {
     trieNode* current = root;
     for (char c : word) {
-        bool found = false;
-        for (auto& child : current->children) {
-            if (child.first == c) {
-                current = child.second;
-                found = true;
-                break;
-            }
+
+        if (current->children.count(c) == 0) {
+
+            current->children[c] = new trieNode();
         }
-        if (!found) {
-            trieNode* newNode = new trieNode();
-            current->children.push_back(make_pair(c, newNode));
-            current = newNode;
-        }
+
+        current = current->children[c];
     }
+
     current->EndOfWord = true;
 }
  void trie:: readWordsFromFileAndInsert(const string& path) {
@@ -56,23 +51,23 @@ bool trie::search(const string& word) {
     }
     return current->EndOfWord;
 }
-
-bool trie::startsWith(const string& prefix) {
+bool trie:: startsWith(const string& prefix) const {
     trieNode* current = root;
     for (char c : prefix) {
-        bool found = false;
-        for (auto& child : current->children) {
-            if (child.first == c) {
-                current = child.second;
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        if (current->children.count(c) == 0) {
             return false;
         }
+        current = current->children[c];
     }
     return true;
 }
 
 
+void trie:: dfs(trieNode* node, const std::string& prefix, vector<string>& suggestions) const {
+    if (node->EndOfWord) {
+        suggestions.push_back(prefix);
+    }
+    for (const auto& child : node->children) {
+        dfs(child.second, prefix + child.first, suggestions);
+    }
+}

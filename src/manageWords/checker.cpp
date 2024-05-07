@@ -1,4 +1,5 @@
 #include "checker.h"
+#include"trie.h"
 Checker::Checker() {}
 
 void Checker::addWord(const string& word) {
@@ -24,7 +25,13 @@ string Checker::autoCorrect(const string& word) {
     }
     return word;
 }
+vector<string> Checker::autoComplete(const string& prefix) const {
+    trieNode* current = root;
+    vector<string> suggestions;
+    if (!startsWith(prefix)) {
+        return suggestions;
+    }
 
-bool Checker::autoComplete(const string& prefix) {
-    return Trie.startsWith(prefix);
+    dfs(current, prefix, suggestions);
+    return suggestions;
 }

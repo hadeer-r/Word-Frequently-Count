@@ -1,6 +1,7 @@
 #ifndef CHECKER_H
 #define CHECKER_H
 #include <string>
+#include<stack>
 #include "trie.h"
 using namespace std;
 class Checker
@@ -14,10 +15,8 @@ public:
     void addWord(const string& word);
 
     bool isCorrect(const string& word);
-
     string autoCorrect(const string& word);
+    vector<string> autoComplete(const string& prefix) const;
 
-    bool autoComplete(const string& prefix);
-};
 
 #endif // CHECKER_H
