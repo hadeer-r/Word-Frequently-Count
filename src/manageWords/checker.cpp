@@ -1,6 +1,5 @@
 #include "checker.h"
 #include"trie.h"
-Checker::Checker() {}
 
 void Checker::addWord(const string& word) {
     trie.insert(word);
@@ -32,6 +31,6 @@ vector<string> Checker::autoComplete(const string& prefix) const {
         return suggestions;
     }
 
-    dfs(current, prefix, suggestions);
-    return suggestions;
-}
+//     dfs(current, prefix, suggestions);
+//     return suggestions;
+// }

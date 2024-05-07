@@ -1,51 +1,44 @@
 #include "manager.h"
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-Manager ::Manager(const string &paragraph, const string &path) : words(paragraph, path) {}
+Manager :: Manager(const string& paragraph , const string& path): manager_words(paragraph,path){
+
+}
 
 int Manager::search(const string word) const {
-    return words.search(word)}
-
-vector<string> Manager::rank(vector<string> vecRank)
-{
-  return words.rank(vecRank);
+    return words.search(word);
 }
 
-vector<pair<string, int>> Manager::sorted() const
-{
-  return words.sorted();
+vector<string> Manager::rank(vector<string> vecRank) {
+    return words.rank(vecRank);
 }
 
-bool Manager::startsWith(const string &prefix) const
-{
-  return false;
+vector<pair<string, int>> Manager::sorted() const {
+    return words.sorted({});
 }
-void Manager::addWord(const string &word)
-{
-  checker.addWord(word);
+
+bool Manager::startsWith(const string& prefix) const {
+    return false;
 }
-bool Manager::isCorrect(const string &word)
-{
-  return checker.isCorrect(word);
+void Manager::addWord(const string& word) {
+    checker.addWord(word);
 }
-string Manager::autoCorrect(const string &word)
-{
-  return checker.autoCorrect(word);
+bool Manager::isCorrect(const string& word) {
+    return checker.isCorrect(word);
 }
-bool Manager::autoComplete(const string &prefix)
-{
-  return checker.autoComplete(prefix);
+string Manager::autoCorrect(const string& word) {
+    return checker.autoCorrect(word);
 }
-void Manager ::read_file(string path)
-{
-  UploadTex.read_file(path)
+bool Manager::autoComplete(const string& prefix) {
+    return checker.autoComplete(prefix);
 }
-void Manager::read_paragraph(string paragraph)
-{
-  UploadText::read_paragraph(paragraph)
+void Manager ::read_file(string path){
+    uploadText.read_file(path)
 }
-void Manager::from_line_to_words(string line)
-{
-  UploadText::from_line_to_words(line)
+void Manager::read_paragraph(string paragraph){
+    uploadText::read_paragraph( paragraph)
+}
+void Manager::from_line_to_words(string line){
+    uploadText::from_line_to_words(line)
 }

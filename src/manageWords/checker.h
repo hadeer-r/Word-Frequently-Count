@@ -10,13 +10,13 @@ class Checker
 private:
     trie Trie;
 public:
-    Checker();
+    Checker()=default;
 
     void addWord(const string& word);
 
     bool isCorrect(const string& word);
     string autoCorrect(const string& word);
     vector<string> autoComplete(const string& prefix) const;
-
+};
 
 #endif // CHECKER_H
