@@ -1,0 +1,774 @@
+Algorithm
+Data Structure
+Programming
+Software
+Hardware
+Operating System
+Compiler
+Interpreter
+Database
+Networking
+Internet
+Cybersecurity
+Encryption
+Decryption
+Artificial Intelligence
+Machine Learning
+Deep Learning
+Neural Network
+Robotics
+Computer Vision
+Natural Language Processing
+Big Data
+Cloud Computing
+Virtualization
+Distributed Systems
+Parallel Computing
+Multithreading
+Concurrency
+Computer Graphics
+User Interface
+User Experience
+Human-Computer Interaction
+Software Engineering
+Agile Development
+Waterfall Model
+Version Control
+Git
+Continuous Integration
+Continuous Deployment
+DevOps
+Test-Driven Development
+Object-Oriented Programming
+Functional Programming
+Imperative Programming
+Declarative Programming
+Procedural Programming
+Event-Driven Programming
+Aspect-Oriented Programming
+Design Patterns
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+Modularity
+Coupling
+Cohesion
+Recursion
+Iteration
+Complexity
+Time Complexity
+Space Complexity
+Big O Notation
+Analysis of Algorithms
+Sorting Algorithm
+Searching Algorithm
+Graph Algorithm
+Dynamic Programming
+Greedy Algorithm
+Divide and Conquer Algorithm
+Backtracking Algorithm
+Hashing
+Array
+Linked List
+Stack
+Queue
+Tree
+Binary Tree
+Binary Search Tree
+Graph
+Directed Graph
+Undirected Graph
+Depth-First Search
+Breadth-First Search
+Dijkstra's Algorithm
+A* Algorithm
+Bellman-Ford Algorithm
+Floyd-Warshall Algorithm
+Prim's Algorithm
+Kruskal's Algorithm
+Topological Sorting
+Hash Table
+Hashtable Collision
+Bucket Sort
+Radix Sort
+Merge Sort
+Quick Sort
+Bubble Sort
+Insertion Sort
+Selection Sort
+Heap Sort
+Shell Sort
+Turing Machine
+Finite State Machine
+Regular Expression
+Context-Free Grammar
+Compiler Design
+Lexical Analysis
+Parsing
+Syntax Tree
+Abstract Syntax Tree
+Code Generation
+Optimization
+Interpreter Design
+Garbage Collection
+Memory Management
+Virtual Memory
+Paging
+Segmentation
+Cache Memory
+Cache Coherence
+Cache Replacement Policy
+Deadlock
+Livelock
+Semaphore
+Mutex
+Monitor
+Critical Section
+Race Condition
+Producer-Consumer Problem
+Dining Philosophers Problem
+Mutual Exclusion
+Atomic Operation
+Synchronization
+Deadlock Prevention
+Deadlock Avoidance
+Deadlock Detection
+Deadlock Resolution
+Paging
+Thrashing
+Demand Paging
+Page Replacement Algorithm
+FIFO Page Replacement
+LRU Page Replacement
+Optimal Page Replacement
+Clock Page Replacement
+Working Set Model
+Segmentation Fault
+Buffer Overflow
+Stack Overflow
+Memory Leak
+Software Bug
+Debugging
+Testing
+White Box Testing
+Black Box Testing
+Unit Testing
+Integration Testing
+System Testing
+Acceptance Testing
+Regression Testing
+Load Testing
+Stress Testing
+Scalability Testing
+Usability Testing
+Accessibility Testing
+Security Testing
+Performance Testing
+Penetration Testing
+Test Plan
+Test Case
+Test Suite
+Test Harness
+Test Fixture
+Test Automation
+Test Driven Development
+Behavior Driven Development
+Continuous Integration
+Continuous Deployment
+Continuous Testing
+Version Control System
+Git
+GitHub
+Bitbucket
+SVN
+Mercurial
+Code Review
+Code Refactoring
+Software Architecture
+Architectural Patterns
+Client-Server Architecture
+Three-Tier Architecture
+Microservices Architecture
+Service-Oriented Architecture
+Event-Driven Architecture
+Model-View-Controller
+Model-View-ViewModel
+Model-View-Controller-ViewModel
+RESTful Architecture
+SOAP Architecture
+RPC Architecture
+Middleware
+Web Services
+APIs
+RESTful APIs
+SOAP APIs
+JSON
+XML
+YAML
+Protocol
+HTTP
+HTTPS
+TCP/IP
+UDP
+FTP
+SSH
+SMTP
+POP3
+IMAP
+DNS
+DHCP
+NAT
+VPN
+OSI Model
+TCP/IP Model
+HTTP Request
+HTTP Response
+Client
+Server
+Request
+Response
+Session
+Cookies
+Authentication
+Authorization
+Token
+JWT
+OAuth
+OpenID Connect
+CORS
+CSRF
+SSL
+TLS
+Encryption
+Decryption
+Symmetric Encryption
+Asymmetric Encryption
+Public Key Infrastructure
+Digital Signature
+Certificate Authority
+Hash Function
+HMAC
+VPN
+Firewall
+IDS
+IPS
+WAF
+Penetration Testing
+Vulnerability Assessment
+Threat Modeling
+Incident Response
+Intrusion Detection
+Intrusion Prevention
+Hacking
+Malware
+Virus
+Worm
+Trojan Horse
+Ransomware
+Spyware
+Adware
+Botnet
+Phishing
+Social Engineering
+Denial of Service (DoS)
+Distributed Denial of Service (DDoS)
+Zero-Day Exploit
+Buffer Overflow
+SQL Injection
+Cross-Site Scripting (XSS)
+Cross-Site Request Forgery (CSRF)
+abandonment
+abundance
+acceptance
+achievement
+admiration
+adversity
+affection
+ambition
+amusement
+anger
+anxiety
+apathy
+appreciation
+arrogance
+aspiration
+astonishment
+awe
+awareness
+balance
+beauty
+boredom
+bravery
+calmness
+capacity
+captivity
+certainty
+chaos
+charity
+clarity
+cleanliness
+closure
+comfort
+commitment
+compassion
+complexity
+confidence
+confusion
+conscience
+contemplation
+contention
+contentment
+control
+cooperation
+courage
+cowardice
+creativity
+cruelty
+curiosity
+darkness
+daydream
+decay
+deceit
+dedication
+defeat
+defiance
+delight
+delusion
+despair
+desperation
+destiny
+determination
+dignity
+diligence
+disappointment
+discovery
+disgust
+discouragement
+dishonesty
+distrust
+doubt
+dream
+dread
+duty
+eagerness
+ecstasy
+education
+efficiency
+ego
+elegance
+embarrassment
+empathy
+encouragement
+endurance
+enthusiasm
+envy
+equality
+escape
+esteem
+eternity
+excitement
+experience
+explanation
+faith
+familiarity
+fascination
+fear
+forgiveness
+fortune
+freedom
+frustration
+fulfillment
+generosity
+gentleness
+glory
+gratitude
+greed
+grief
+guilt
+habit
+happiness
+harmony
+hatred
+healing
+helplessness
+honesty
+hope
+horror
+humiliation
+hunger
+ignorance
+illiteracy
+imagination
+impatience
+importance
+individuality
+insecurity
+inspiration
+integrity
+intelligence
+intention
+interest
+intrigue
+intuition
+isolation
+jealousy
+joy
+justice
+kindness
+knowledge
+laziness
+leadership
+liberty
+loneliness
+longing
+loss
+love
+loyalty
+madness
+magic
+malice
+mankind
+manner
+marriage
+maturity
+meaning
+melancholy
+mercy
+mystery
+neatness
+neglect
+obedience
+obligation
+observation
+optimism
+opportunity
+order
+organization
+originality
+pain
+panic
+peace
+perfection
+perseverance
+persuasion
+pessimism
+pity
+pleasure
+politeness
+poverty
+power
+praise
+prejudice
+preparation
+presence
+pride
+privilege
+problem
+progress
+promise
+proof
+punishment
+purpose
+qualification
+rage
+reason
+rebellion
+regret
+rejection
+relaxation
+relief
+religion
+remorse
+repentance
+respect
+responsibility
+rest
+restraint
+revenge
+reward
+risk
+sadness
+sanity
+satisfaction
+scarcity
+security
+selfishness
+separation
+serenity
+service
+shock
+silence
+sincerity
+skepticism
+skill
+sleep
+solitude
+sorrow
+spite
+stability
+strength
+stress
+struggle
+stubbornness
+stupidity
+submission
+success
+suffering
+surprise
+suspense
+sympathy
+talent
+temptation
+terror
+thankfulness
+theft
+thought
+tiredness
+tolerance
+tradition
+tragedy
+trust
+truth
+understanding
+unity
+urgency
+usefulness
+vanity
+victory
+violence
+virtue
+weakness
+wealth
+wisdom
+wonder
+worry
+abide
+accomplish
+achieve
+admire
+admit
+advise
+afford
+agree
+alarm
+amuse
+analyze
+announce
+answer
+anticipate
+apologize
+appear
+applaud
+appreciate
+argue
+arise
+arrange
+arrive
+ask
+assemble
+associate
+assure
+astonish
+attack
+attain
+attract
+avoid
+bake
+balance
+bathe
+battle
+become
+beg
+begin
+behave
+believe
+belong
+bend
+bless
+boil
+borrow
+break
+breathe
+bring
+broadcast
+build
+burn
+bury
+buy
+calculate
+call
+calm
+carry
+carve
+cash
+cast
+catch
+celebrate
+center
+change
+charge
+chase
+chat
+cheat
+chew
+choose
+chop
+clean
+clear
+climb
+close
+clutch
+collapse
+collect
+color
+combine
+command
+comment
+communicate
+compare
+complain
+complete
+compose
+concentrate
+conceal
+conclude
+conduct
+confess
+connect
+conquer
+consider
+construct
+consult
+contain
+continue
+convince
+cook
+copy
+correct
+cost
+cough
+count
+cover
+crack
+crash
+crawl
+create
+creep
+criticize
+cry
+cultivate
+cut
+dance
+dare
+dash
+decide
+decorate
+defend
+defy
+delay
+deliver
+demand
+demonstrate
+depend
+describe
+deserve
+desire
+destroy
+detach
+determine
+develop
+disagree
+disappoint
+disapprove
+disappear
+discover
+discuss
+dismiss
+distribute
+disturb
+divide
+doze
+draw
+dream
+dress
+drink
+drive
+drop
+drown
+dry
+dust
+earn
+eat
+educate
+efface
+embrace
+emerge
+employ
+empty
+encourage
+end
+enjoy
+enter
+entertain
+entitle
+entrust
+envy
+erase
+escape
+escort
+establish
+estimate
+evacuate
+examine
+excite
+exclaim
+excuse
+exercise
+exist
+expand
+expect
+explain
+explode
+expose
+extend
+extract
+face
+fade
+fail
+faint
+fall
+fasten
+favor
+fear
+feed
+feel
+fight
+find
+fire
+fit
+fix
+flap
+flash
+float
+flood
+flow
+fold
+follow
+fool
+force
+forget
+forgive
+form
+found
+fracture
+freeze
+frighten
+fry
+fulfill
+fumble
+gain
+gamble
+gasp
+gather
+get
