@@ -15,6 +15,7 @@ qt_add_executable(appWord_Frequently_Count
     src/manageWords/trienode.cpp src/manageWords/trienode.h
     src/manageWords/trie.cpp src/manageWords/trie.h
     src/manageWords/checker.cpp src/manageWords/checker.h
+    src/manager/manager.cpp src/manager/manager.h
 
 )
 target_include_directories(appWord_Frequently_Count PUBLIC
