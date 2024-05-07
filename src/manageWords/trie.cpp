@@ -1,6 +1,9 @@
 #include "trie.h"
 #include"trienode.h"
 #include"trie.h"
+#include <fstream>
+#include <iostream>
+using namespace std;
 trie::trie() {
     root = new trieNode();
 }
