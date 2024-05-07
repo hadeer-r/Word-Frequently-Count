@@ -23,6 +23,16 @@ target_include_directories(appWord_Frequently_Count PUBLIC
     src/mangeText/
     src/manageWords/
 )
+target_include_directories(appWord_Frequently_Count PUBLIC
+
+    src/manageWords/
+)
+target_include_directories(appWord_Frequently_Count PUBLIC
+    src/mangeText/
+)
+target_include_directories(appWord_Frequently_Count PUBLIC
+    src/BST/
+)
 
 if(QT_KNOWN_POLICY_QTP0001)
     qt_policy(SET QTP0001 OLD)

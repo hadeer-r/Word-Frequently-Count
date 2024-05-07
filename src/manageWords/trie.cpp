@@ -20,7 +20,7 @@ void trie::insert(const string& word) {
     current->EndOfWord = true;
 }
  void trie:: readWordsFromFileAndInsert(const string& path) {
-    ifstream my_file(path);
+      ifstream my_file(path);
     if (!my_file.is_open()) {
         cerr << "Error: Unable to open file." << endl;
         return;
@@ -63,7 +63,7 @@ bool trie:: startsWith(const string& prefix) const {
 }
 
 
-void trie:: dfs(trieNode* node, const std::string& prefix, vector<string>& suggestions) const {
+void trie:: dfs(trieNode* node, const string& prefix, vector<string>& suggestions) const {
     if (node->EndOfWord) {
         suggestions.push_back(prefix);
     }

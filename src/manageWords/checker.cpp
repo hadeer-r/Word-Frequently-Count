@@ -1,13 +1,12 @@
 #include "checker.h"
 #include"trie.h"
 Checker::Checker() {}
-
 void Checker::addWord(const string& word) {
-    trie.insert(word);
+    Trie.insert(word);
 }
 
 bool Checker::isCorrect(const string& word) {
-    return trie.search(word);
+    return Trie.search(word);
 }
 
 string Checker::autoCorrect(const string& word) {
