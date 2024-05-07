@@ -7,7 +7,7 @@
 #include "../manageText/upload_text.hpp"
 using namespace std;
 class trie {
-private:
+protected:
     trieNode* root;
 
 public:
@@ -17,7 +17,6 @@ public:
     bool search(const string& word);
   bool startsWith(const string& prefix) const;
     void dfs(trieNode* node, const string& prefix, vector<string>& suggestions) const;
-
     void readWordsFromFileAndInsert(const string& path);
 };
 

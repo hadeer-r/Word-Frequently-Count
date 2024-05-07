@@ -20,7 +20,7 @@ void trie::insert(const string& word) {
     current->EndOfWord = true;
 }
  void trie:: readWordsFromFileAndInsert(const string& path) {
-      ifstream my_file(path);
+       ifstream my_file(path);
     if (!my_file.is_open()) {
         cerr << "Error: Unable to open file." << endl;
         return;
