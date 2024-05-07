@@ -20,7 +20,11 @@ qt_add_executable(appWord_Frequently_Count
 )
 target_include_directories(appWord_Frequently_Count PUBLIC
     src/BST/
+)
+target_include_directories(appWord_Frequently_Count PUBLIC
     src/mangeText/
+)
+target_include_directories(appWord_Frequently_Count PUBLIC
     src/manageWords/
 )
 target_include_directories(appWord_Frequently_Count PUBLIC

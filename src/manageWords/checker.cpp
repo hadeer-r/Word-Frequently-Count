@@ -1,6 +1,10 @@
 #include "checker.h"
 #include"trie.h"
+<<<<<<< HEAD
+
+=======
 Checker::Checker() {}
+>>>>>>> ded845c798b63b91145a0f0c3e9b61c5950aeb40
 void Checker::addWord(const string& word) {
     Trie.insert(word);
 }
@@ -31,6 +35,6 @@ vector<string> Checker::autoComplete(const string& prefix) const {
         return suggestions;
     }
 
-    dfs(current, prefix, suggestions);
-    return suggestions;
-}
+//     dfs(current, prefix, suggestions);
+//     return suggestions;
+// }

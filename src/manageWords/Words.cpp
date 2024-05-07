@@ -17,16 +17,16 @@ Words::Words(string paragraph = "", string path = "")
 int Words::search(const string word)const {
     auto it = wordFrequencies.find(word);
     return it->second;
-
 }
 
-vector<string> Words::rank(vector<string> vecRank) {
-    vecRank = myFile.get_wordsRank();
-    return vecRank;
+vector<string> Words::rank() {
+    vector<string> words_rank = myFile.get_wordsRank();
+    return words_rank;
 }
 
 
-vector<pair<string, int>> Words::sorted(vector<pair<string,int>> wordSort) {
-    wordSort = treeWord.sorted();
+vector<pair<string, int>> Words::sorted() {
+    treeWord.fill_tree(wordFrequencies);
+    vector<pair<string,int>> wordSort=treeWord.sorted();
     return wordSort;
 }

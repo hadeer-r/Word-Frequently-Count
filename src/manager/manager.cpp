@@ -1,51 +1,55 @@
 #include "manager.h"
-#include <iostream>
-using namespace std;
 
-Manager ::Manager(const string &paragraph, const string &path) : words(paragraph, path) {}
-
-int Manager::search(const string word) const {
-    return words.search(word)}
-
-vector<string> Manager::rank(vector<string> vecRank)
+Manager ::Manager(const string &paragraph, const string &path)
+    : words(paragraph, path),
+      manager_checker()
 {
-  return words.rank(vecRank);
+    set_sorted();
+    set_rank();
 }
 
-vector<pair<string, int>> Manager::sorted() const
+int Manager::search(const string word) const
 {
-  return words.sorted();
+    return words.search(word);
+}
+
+vector<string> Manager::get_rank() const
+{
+    return this->mananger_rank;
+}
+void Manager::set_rank()
+{
+    this->mananger_rank = words.rank();
+}
+
+vector<pair<string, int>> Manager::get_sorted() const
+{
+    return this->manager_words;
+}
+void Manager::set_sorted()
+{
+    this->manager_words = words.sorted();
 }
 
 bool Manager::startsWith(const string &prefix) const
 {
-  return false;
+    return false;
 }
 void Manager::addWord(const string &word)
 {
-  checker.addWord(word);
+    manager_checker.addWord(word);
 }
 bool Manager::isCorrect(const string &word)
 {
-  return checker.isCorrect(word);
+    return manager_checker.isCorrect(word);
 }
+
 string Manager::autoCorrect(const string &word)
 {
-  return checker.autoCorrect(word);
+    return manager_checker.autoCorrect(word);
 }
-bool Manager::autoComplete(const string &prefix)
+
+vector<string> Manager::autoComplete(const string &prefix)
 {
-  return checker.autoComplete(prefix);
-}
-void Manager ::read_file(string path)
-{
-  UploadTex.read_file(path)
-}
-void Manager::read_paragraph(string paragraph)
-{
-  UploadText::read_paragraph(paragraph)
-}
-void Manager::from_line_to_words(string line)
-{
-  UploadText::from_line_to_words(line)
+    return manager_checker.autoComplete(prefix);
 }
