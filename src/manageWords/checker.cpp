@@ -3,11 +3,11 @@
 Checker::Checker() {}
 
 void Checker::addWord(const string& word) {
-    Trie.insert(word);
+    trie.insert(word);
 }
 
 bool Checker::isCorrect(const string& word) {
-    return Trie.search(word);
+    return trie.search(word);
 }
 
 string Checker::autoCorrect(const string& word) {
