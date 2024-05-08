@@ -1,63 +1,80 @@
 #include "trie.h"
-#include"trienode.h"
-#include"trie.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
-trie::trie() {
+trieNode::trieNode()
+{
+    EndOfWord = false;
+}
+trie::trie()
+{
     root = new trieNode();
+    readWordsFromFileAndInsert("dictionary.txt");
 }
 
-void trie::insert(const string& word) {
-    trieNode* current = root;
-    for (char c : word) {
+void trie::insert(const string &word)
+{
+    trieNode *current = root;
+    for (char c : word)
+    {
 
-        if (current->children.count(c) == 0) {
+        if (current->children.count(c) == 0)
+        {
 
             current->children[c] = new trieNode();
         }
 
         current = current->children[c];
     }
-
     current->EndOfWord = true;
 }
- void trie:: readWordsFromFileAndInsert(const string& path) {
-       ifstream my_file(path);
-    if (!my_file.is_open()) {
+void trie::readWordsFromFileAndInsert(const string &path)
+{
+    ifstream my_file(path);
+    if (!my_file.is_open())
+    {
         cerr << "Error: Unable to open file." << endl;
         return;
     }
 
     string word;
-    while (my_file >> word) {
+    while (my_file >> word)
+    {
         insert(word);
     }
 
-   my_file.close();
+    my_file.close();
 }
 
-bool trie::search(const string& word) {
-    trieNode* current = root;
-    for (char c : word) {
+bool trie::search(const string &word)
+{
+    trieNode *current = root;
+    for (char c : word)
+    {
         bool found = false;
-        for (auto& child : current->children) {
-            if (child.first == c) {
+        for (auto &child : current->children)
+        {
+            if (child.first == c)
+            {
                 current = child.second;
                 found = true;
                 break;
             }
         }
-        if (!found) {
+        if (!found)
+        {
             return false;
         }
     }
     return current->EndOfWord;
 }
-bool trie:: startsWith(const string& prefix) const {
-    trieNode* current = root;
-    for (char c : prefix) {
-        if (current->children.count(c) == 0) {
+bool trie::startsWith(const string &prefix) const
+{
+    trieNode *current = root;
+    for (char c : prefix)
+    {
+        if (current->children.count(c) == 0)
+        {
             return false;
         }
         current = current->children[c];
@@ -65,12 +82,16 @@ bool trie:: startsWith(const string& prefix) const {
     return true;
 }
 
-
-void trie:: dfs(trieNode* node, const string& prefix, vector<string>& suggestions) const {
-    if (node->EndOfWord) {
-        suggestions.push_back(prefix);
+void trie::dfs(trieNode *node, const string &prefix,string current_word, vector<string> &suggestions) const
+{
+    if (node->EndOfWord)
+    {
+        suggestions.push_back(prefix+current_word);
     }
-    for (const auto& child : node->children) {
-        dfs(child.second, prefix + child.first, suggestions);
+
+    for (auto &child : node->children)
+    {
+
+        dfs(child.second, prefix,current_word+child.first, suggestions);
     }
 }
