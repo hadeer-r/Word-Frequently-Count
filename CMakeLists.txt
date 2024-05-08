@@ -12,7 +12,6 @@ qt_add_executable(appWord_Frequently_Count
     src/BST/binary_search_tree.cpp src/BST/binary_search_tree.hpp
     src/manageText/upload_text.cpp src/manageText/upload_text.hpp
     src/manageWords/Words.cpp src/manageWords/Words.hpp
-    src/manageWords/trienode.cpp src/manageWords/trienode.h
     src/manageWords/trie.cpp src/manageWords/trie.h
     src/manageWords/checker.cpp src/manageWords/checker.h
     src/manager/manager.cpp src/manager/manager.h
