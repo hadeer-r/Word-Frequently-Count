@@ -25,6 +25,7 @@ string Checker::autoCorrect(const string& word) {
     return word;
 }
 vector<string> Checker::autoComplete(const string& prefix) const {
+<<<<<<< HEAD
     // // trieNode* current = this->root;
     // vector<string> suggestions;
     // if (!startsWith(prefix)) {
@@ -34,3 +35,14 @@ vector<string> Checker::autoComplete(const string& prefix) const {
     // // dfs(current, prefix, suggestions);
     // // return suggestions;
 }
+=======
+    trieNode*current = root;
+    vector<string> suggestions;
+    if (!startsWith(prefix)) {
+        return suggestions;
+    }
+
+    dfs(current, prefix, suggestions);
+    return suggestions;
+};
+>>>>>>> 3fa6f30514190477f9d109a8e8f11431cff386ee
