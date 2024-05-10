@@ -14,10 +14,8 @@ public:
     Checker();
 
     void addWord(const string& word);
-    bool isCorrect(const string& word);
-    string autoCorrect(const string& word);
+   vector<string> autocorrect(const string& word) const;
     vector<string> autoComplete(const string& prefix) const;
-
 
 };
 
