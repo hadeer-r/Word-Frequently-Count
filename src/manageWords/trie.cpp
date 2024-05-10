@@ -82,16 +82,38 @@ bool trie::startsWith(const string &prefix) const
     return true;
 }
 
-void trie::dfs(trieNode *node, const string &prefix,string current_word, vector<string> &suggestions) const
+void trie::dfs(trieNode *node, const string &prefix, string current_word, vector<string> &suggestions) const
 {
     if (node->EndOfWord)
     {
-        suggestions.push_back(prefix+current_word);
+        suggestions.push_back(prefix + current_word);
     }
 
     for (auto &child : node->children)
     {
 
-        dfs(child.second, prefix,current_word+child.first, suggestions);
+        dfs(child.second, prefix, current_word + child.first, suggestions);
     }
+}
+trie::~trie()
+{
+    // Call a helper function to recursively delete all nodes starting from the root
+    deleteSubtree(root);
+}
+
+void trie::deleteSubtree(trieNode *node)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    // Recursively delete child nodes
+    for (auto it = node->children.begin();it!=node->children.end();++it)
+    {
+        deleteSubtree(it->second);
+    }
+
+    // Delete the current node
+    delete node;
 }

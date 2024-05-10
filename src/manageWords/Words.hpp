@@ -7,7 +7,6 @@
 #include "../manageText/upload_text.hpp"
 using namespace std;
 
-
 class Words {
 private:
     unordered_map<string, int>wordFrequencies;
@@ -23,12 +22,5 @@ public:
     vector<pair<string,int>> sorted();
 
 };
-
-
-
-
-
-
-
 
 #endif // WORDS_H

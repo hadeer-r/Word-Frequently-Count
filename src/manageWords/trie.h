@@ -26,6 +26,9 @@ public:
   void dfs(trieNode *node, const string &prefix,string current_word, vector<string> &suggestions) const;
   void readWordsFromFileAndInsert(const string &path);
   trieNode *get_root() const { return root; }
+  void deleteSubtree(trieNode* node);
+  ~trie();
+  
 };
 
 #endif // TRIE_H
