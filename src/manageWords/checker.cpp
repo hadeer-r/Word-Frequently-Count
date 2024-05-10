@@ -8,34 +8,41 @@ void Checker::addWord(const string &word)
     Trie.insert(word);
 }
 
-bool Checker::isCorrect(const string &word)
-{
+bool Checker:: isCorrect(const string& word) {
     return Trie.search(word);
 }
 
-string Checker::autoCorrect(const string &word)
-{
+string Checker::autoCorrect(const string& word) {
     string correctedWord = word;
-    bool foundCorrection = false;
-    for (int i = 0; i < word.length(); ++i)
-    {
+    for (char& c : correctedWord) {
+        if (isupper(c)) {
+            c = tolower(c);
+        }
+    }
 
+    if (isCorrect(correctedWord)) {
+        return correctedWord;
+    }
 
-        for (char c = 'a',u='A'; c <= 'z'; ++c,++u)
-        {
-            
-            if (word[i] != c&&word[i])
-            {
+    for (int i = 0; i < correctedWord.length(); ++i) {
+        trieNode* current = Trie.get_root();
+        for (char c = 'a'; c <= 'z'; ++c) {
+            if (correctedWord[i] != c) {
                 correctedWord[i] = c;
-                if (isCorrect(correctedWord))
-                {
+                if (isCorrect(correctedWord)) {
                     return correctedWord;
                 }
+                correctedWord[i] = word[i];
+            }
+            if (current != nullptr && current->children.count(c) > 0) {
+                current = current->children[c];
+            } else {
+                break;
             }
         }
-        correctedWord[i] = word[i];
     }
-    return correctedWord;
+
+    return word;
 }
 vector<string> Checker::autoComplete(const string &prefix) const
 {

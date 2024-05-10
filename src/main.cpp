@@ -1,13 +1,12 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include<iostream>
 #include "Words.hpp"
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
@@ -22,7 +21,6 @@ int main(int argc, char *argv[])
         },
         Qt::QueuedConnection);
     engine.load(url);
-
 
     return app.exec();
 }
