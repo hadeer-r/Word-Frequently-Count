@@ -46,25 +46,13 @@ void trie::readWordsFromFileAndInsert(const string &path)
     my_file.close();
 }
 
-bool trie::search(const string &word)
-{
-    trieNode *current = root;
-    for (char c : word)
-    {
-        bool found = false;
-        for (auto &child : current->children)
-        {
-            if (child.first == c)
-            {
-                current = child.second;
-                found = true;
-                break;
-            }
-        }
-        if (!found)
-        {
+bool trie:: search(const string& word) const {
+    trieNode* current = root;
+    for (char c : word) {
+        if (current->children.count(c) == 0) {
             return false;
         }
+        current = current->children[c];
     }
     return current->EndOfWord;
 }

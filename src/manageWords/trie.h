@@ -21,7 +21,7 @@ protected:
 public:
   trie();
   void insert(const string &word);
-  bool search(const string &word);
+  bool search(const string& word) const;
   bool startsWith(const string &prefix) const;
   void dfs(trieNode *node, const string &prefix,string current_word, vector<string> &suggestions) const;
   void readWordsFromFileAndInsert(const string &path);
