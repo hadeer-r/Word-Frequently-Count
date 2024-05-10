@@ -13,32 +13,38 @@ bool Checker:: isCorrect(const string& word) {
 }
 
 string Checker::autoCorrect(const string& word) {
-    string correctedWord = word;
-    for (char& c : correctedWord) {
-        if (isupper(c)) {
-            c = tolower(c);
-        }
-    }
+        string Correction = word;
+        int minEdits = word.length();
+        for (int i = 0; i < word.length(); ++i) {
+            for (char c = 'a'; c <= 'z'; ++c) {
+                if (word[i] != c) {
+                    string correctedWord = word;
+                    correctedWord[i] = c;
+                    int edits = 1;
 
-    if (isCorrect(correctedWord)) {
-        return correctedWord;
-    }
+                    if (isCorrect(correctedWord)) {
+                        return correctedWord;
+                    } else {
 
-    for (int i = 0; i < correctedWord.length(); ++i) {
-        char originalChar = correctedWord[i];
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (correctedWord[i] != c) {
-                correctedWord[i] = c;
-                if (isCorrect(correctedWord)) {
-                    return correctedWord;
+                        correctedWord[i] = toupper(c);
+                        if (isCorrect(correctedWord) && edits < minEdits) {
+                            Correction = correctedWord;
+                            minEdits = edits;
+                        }
+                    }
                 }
             }
+            string correctedWord = word.substr(0, i) + word.substr(i + 1);
+            int edits = 1;
+            if (isCorrect(correctedWord) && edits < minEdits) {
+            Correction = correctedWord;
+                minEdits = edits;
+            }
         }
-        correctedWord[i] = originalChar;
+
+        return Correction;
     }
 
-    return word;
-}
 
 vector<string> Checker::autoComplete(const string &prefix) const
 {
