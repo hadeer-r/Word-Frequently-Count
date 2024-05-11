@@ -12,12 +12,15 @@ int main(){
     Checker ch;
     
     vector<string> words_auto=ch.autoComplete("Virtua");
-    string correct_word=ch.autoCorrect("algorihtm");// should return algorithm
+    vector<string> correct_word=ch.autoCorrect("algorihtm");// should return algorithm
 
     for(auto w:words_auto){
         cout<<w<<" ";
     }
-    cout<<"\n\n"<<correct_word<<"\n";
+    cout<<"\n\n";
+    for(auto w:correct_word){
+        cout<<w<<" ";
+    }
 
     return 0;
 }

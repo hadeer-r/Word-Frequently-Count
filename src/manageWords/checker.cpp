@@ -20,7 +20,6 @@ vector<string> Checker::autoCorrect(const string &word)
             prefix += word[i];
         else
         {
-            cout << prefix << "\n";
             if (Trie.startsWith(prefix) && !Trie.startsWith(prefix + word[i]))
             {
                 suggestions = autoComplete(prefix);
