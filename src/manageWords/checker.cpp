@@ -8,7 +8,6 @@ void Checker::addWord(const string &word)
     Trie.insert(word);
 }
 
-<<<<<<< HEAD
 vector<string> Checker::autoCorrect(const string &word)
 {
     vector<string> suggestions;
@@ -36,16 +35,6 @@ vector<string> Checker::autoCorrect(const string &word)
             {
                 suggestions = autoComplete(prefix);
             }
-=======
-vector<string>Checker:: autocorrect(const string& word) const {
-    vector<string> suggestions;
-    string prefix = "";
-    for (size_t i = 0; i < word.size(); ++i) {
-        prefix += word[i];
-        if (!Trie.startsWith(prefix)) {
-            suggestions=autoComplete(prefix);
-            break;
->>>>>>> f7eb5e1f9344b3c79e766f2874e2cd763af558a8
         }
     }
     return suggestions;
