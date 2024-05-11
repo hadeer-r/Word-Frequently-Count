@@ -1,55 +1,87 @@
 #include "manager.h"
-
-Manager ::Manager(const string &paragraph, const string &path)
-    : words(paragraph, path),
+#include <sstream>
+#include <unordered_map>
+Manager ::Manager(const string& paragraph)
+    : words(paragraph),
       manager_checker()
 {
-    set_sorted();
-    set_rank();
+    set_sorted(paragraph);
+    set_rank(paragraph);
 }
 
-int Manager::search(const string word) const
+int Manager::search(const string word)
 {
     return words.search(word);
 }
 
-vector<string> Manager::get_rank() const
+string Manager::get_rank(string paragraph)
 {
-    return this->mananger_rank;
+    set_rank(paragraph);
+    string ranking="";
+    for(int i=0;i<(int)mananger_rank.size();++i){
+        ranking+=makeLine(mananger_rank[i],i+1,false);
+    }
+    return ranking;
 }
-void Manager::set_rank()
+void Manager::set_rank(string paragraph)
 {
+    Words temp(paragraph);
+    words=temp;
     this->mananger_rank = words.rank();
 }
 
-vector<pair<string, int>> Manager::get_sorted() const
+string Manager::get_sorted(string paragraph)
 {
-    return this->manager_words;
+    UploadText mytext;
+    mytext.read_paragraph(paragraph);
+    unordered_map<string,int> myFreq=mytext.get_wordsMap();
+    string sorted_freq="";
+    for(const auto & par:myFreq){
+        sorted_freq+=makeLine(par.first,par.second,true);
+    }
+    return sorted_freq;
 }
-void Manager::set_sorted()
+
+void Manager::set_sorted(string paragraph)
 {
+    if(paragraph!="")
+    words.updateMap(paragraph);
     this->manager_words = words.sorted();
 }
 
-bool Manager::startsWith(const string &prefix) const
-{
-    return false;
-}
 void Manager::addWord(const string &word)
 {
     manager_checker.addWord(word);
 }
-bool Manager::isCorrect(const string &word)
+
+string Manager::autoWComplete(const string &prefix,int idx)
 {
-    return manager_checker.isCorrect(word);
+    vector<string> wordsComplete= manager_checker.autoComplete(prefix);
+    cout<<wordsComplete[idx];
+    return wordsComplete[idx];
 }
 
-string Manager::autoCorrect(const string &word)
+void Manager::updateTextInFile(string path, string paragraph)
 {
-    return manager_checker.autoCorrect(word);
+    file_manager.write_inFile(path,paragraph);
 }
 
-vector<string> Manager::autoComplete(const string &prefix)
+string Manager::makeLine(string word, int freq, bool right)
 {
-    return manager_checker.autoComplete(prefix);
+    ostringstream oss;
+
+    if(right)
+    {
+        oss<<word;
+        oss<<" : ";
+        oss<<freq;
+        oss<<"\n";
+    }
+    else {
+        oss<<freq;
+        oss<<" : ";
+        oss<<word;
+        oss<<"\n";
+    }
+    return oss.str();
 }

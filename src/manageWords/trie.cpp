@@ -87,11 +87,25 @@ void trie::deleteSubtree(trieNode *node)
     }
 
     // Recursively delete child nodes
-    for (auto it = node->children.begin();it!=node->children.end();++it)
+    for (auto it = node->children.begin(); it != node->children.end(); ++it)
     {
         deleteSubtree(it->second);
     }
 
     // Delete the current node
     delete node;
+}
+
+bool trie::search(const string &word)
+{
+    trieNode *current = root;
+    for (char c : word)
+    {
+        if (current->children.count(c) == 0)
+        {
+            return false;
+        }
+        current = current->children[c];
+    }
+    return current->EndOfWord;
 }

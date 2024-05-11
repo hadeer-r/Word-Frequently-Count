@@ -36,7 +36,9 @@ target_include_directories(appWord_Frequently_Count PUBLIC
 target_include_directories(appWord_Frequently_Count PUBLIC
     src/BST/
 )
-
+target_include_directories(appWord_Frequently_Count PUBLIC
+    src/
+)
 if(QT_KNOWN_POLICY_QTP0001)
     qt_policy(SET QTP0001 OLD)
 endif()
@@ -45,9 +47,16 @@ qt_add_qml_module(appWord_Frequently_Count
     URI Word_Frequently_Count
     VERSION 1.0
     QML_FILES qml/main.qml
-
+    SOURCES src/backend.h src/backend.cpp
+    RESOURCES
+    qrc/SearchWord.png
+    qrc/Path.png
+    qrc/submit.png
+    qrc/Vector.png
+    qrc/right.png
+    qrc/left.png
 )
-
+# configure_file(file.txt file.txt COPYONLY)
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.

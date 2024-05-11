@@ -3,6 +3,7 @@
 #include "Words.hpp"
 #include <iostream>
 #include <vector>
+#include "backend.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -10,6 +11,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    Backend backend;
+    engine.rootContext()->setContextProperty("src/backend",&backend);
     const QUrl url(QStringLiteral("qrc:/Word_Frequently_Count/qml/main.qml"));
     QObject::connect(
         &engine,

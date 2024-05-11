@@ -13,13 +13,15 @@ private:
     BinarySTree treeWord;
     UploadText myFile;
 public:
-    Words(string paragraph, string path);
+    Words(string paragraph);
 
     int search(const string word) const;
 
     vector<string> rank();
 
     vector<pair<string,int>> sorted();
+    void updateMap(string paragraph);
+
 
 };
 
