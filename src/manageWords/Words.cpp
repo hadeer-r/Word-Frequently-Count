@@ -3,20 +3,21 @@
 #include<unordered_map>
 using namespace std;
 
-Words::Words(string paragraph = "", string path = "")
+Words::Words(string paragraph)
 {
     if (paragraph != "") {
         myFile.read_paragraph(paragraph);
     }
-    else if (path != "") {
-        myFile.read_file(path);
-    }
+
     wordFrequencies = myFile.get_wordsMap();
 }
 
 int Words::search(const string word)const {
     auto it = wordFrequencies.find(word);
+    if(it==nullptr)
+        return 0;
     return it->second;
+
 }
 
 vector<string> Words::rank() {
@@ -30,3 +31,10 @@ vector<pair<string, int>> Words::sorted() {
     vector<pair<string,int>> wordSort=treeWord.sorted();
     return wordSort;
 }
+
+void Words::updateMap(string paragraph){
+    myFile.read_paragraph(paragraph);
+    wordFrequencies=myFile.get_wordsMap();
+}
+
+

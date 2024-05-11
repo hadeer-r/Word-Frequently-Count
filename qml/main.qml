@@ -5,7 +5,7 @@ import QtQuick.Layouts
 import Qt.labs.settings
 import QtQuick 6.5
 import QtQuick.Controls 6.5
-//import UntitledProject4
+import Word_Frequently_Count
 
 Window {
   width: 1200
@@ -22,6 +22,28 @@ Window {
   // border.width: 1
   // activeFocusOnTab: false
   // focus: false
+
+  Backend {
+      id: myBackend
+      onGetTextFromFileEmitted : (text) => {
+                                     textArea.text=text
+                                 }
+      onUpdateTextUserEmitted : (path,paragraph) =>{
+                             textArea.text=paragraph
+                         }
+      onSortFrequencyEmitted : (currentSort) =>{
+                                   textArea1.text=currentSort
+                               }
+      onRankWordsEmitted : (currentRank) => {
+                               textArea1.text=currentRank
+                           }
+      onAutoCompletionWorddsEmitted : (paragraph) =>{
+                                          textArea.text=paragraph
+                                      }
+      onSearchWordEmitted : (freq)=>{
+                                textField1.text=freq
+                            }
+  }
 
   Rectangle {
       id: input
@@ -49,6 +71,24 @@ Window {
               height: 380
               font.pointSize: 12
               placeholderText: qsTr("Paste or type your data here...")
+
+              onTextChanged: {
+                  var var_path = textField.text
+                  if(var_path===""){
+                      myBackend.updateTextUser("",textArea.text)
+                  } else {
+                      myBackend.updateTextUser(var_path,textArea.text)
+                  }
+                  if(rank.checked===false){
+                      myBackend.sortFrequency(textArea1.text,textArea.text)
+                  } else {
+                      myBackend.rankWords(textArea1.text,textArea.text)
+                  }
+
+
+              }
+
+
           }
       }
 
@@ -70,8 +110,15 @@ Window {
               y: 6
               width: 91
               height: 116
-              source: "qrc:/submit.png"
+              source: "../qrc/submit.png"
               fillMode: Image.PreserveAspectFit
+          }
+          onClicked: {
+              var userInputPath=textField.text;
+              if(textField.text!==""){
+                  myBackend.getTextFromFile(userInputPath)
+              }
+
           }
       }
 
@@ -131,6 +178,15 @@ Window {
           width: 114
           height: 40
           text: qsTr("Rank")
+          checked: false
+          onCheckedChanged: {
+              if(checked===false){
+                  myBackend.sortFrequency(textArea1.text,textArea.text)
+              } else {
+                  myBackend.rankWords(textArea1.text,textArea.text)
+              }
+
+          }
       }
   }
 
@@ -161,7 +217,7 @@ Window {
               y: 4
               width: 45
               height: 32
-              source: "qrc:/Path.png"
+              source: "../qrc/Path.png"
               fillMode: Image.PreserveAspectFit
           }
       }
@@ -192,13 +248,13 @@ Window {
           id: vector
           x: 12
           y: 13
-          source: "qrc:/Vector.png"
+          source: "../qrc/Vector.png"
           fillMode: Image.PreserveAspectFit
       }
   }
 
   Button {
-      id: historybutton
+      id: searchWordbutton
       x: 1085
       y: 89
       width: 71
@@ -209,29 +265,102 @@ Window {
       flat: true
 
       Image {
-          id: history
+          id: searchWords
+          width: parent.width
+          height: parent.height
           x: 20
           y: 5
-          source: "qrc:/History.png"
+          source: "../qrc/SearchWord.png"
           fillMode: Image.PreserveAspectFit
+      }
+      onClicked: {
+          myBackend.searchWord(textField1.text)
       }
   }
 
-// states: [
-  //     State {
-  //         name: "clicked"
+  // Button {
+  //     id: nextWord
+  //     x: 200
+  //     y: 595
+  //     width: 30
+  //     height: 30
+  //     text: qsTr("")
+  //     autoRepeat: true
+  //     checkable: false
+  //     flat: true
+
+  //     Image {
+  //         id: right
+  //         width: 20
+  //         height: 20
+  //         x: 11
+  //         y: 5
+  //         source: "../qrc/right.png"
+  //         fillMode: Image.PreserveAspectFit
   //     }
-  // ]
-
-
-  // Settings {
-  //     category: 'window'
-  //     property alias x: window.x
-  //     property alias y: window.x
-  //     property alias width: window.width
-  //     property alias height: window.height
+  //     onClicked: {
+  //         suggesstions.next=0
+  //         myBackend.autoCompletionWordds(textArea.text,suggesstions.idx,suggesstions.next)
+  //     }
   // }
 
+  // Button {
+  //         id: previousWord
+  //         x: 25
+  //         y: 595
+  //         width: 30
+  //         height: 30
+  //         text: qsTr("")
+  //         autoRepeat: true
+  //         checkable: false
+  //         flat: true
+
+  //         Image {
+  //             id: left
+  //             width: 20
+  //             height: 20
+  //             x: 12
+  //             y: 5
+  //             source: "../qrc/left.png"
+  //             fillMode: Image.PreserveAspectFit
+  //       }
+  //        onClicked: {
+  //            suggesstions.next=1
+  //            myBackend.autoCompletionWordds(textArea.text,suggesstions.idx,suggesstions.next)
+  //        }
+  // }
+
+  Rectangle {
+          id: suggesstions
+          width: 140
+          height: 40
+          radius: 3
+          y : 595
+          x : 60
+          border.color: "#b662d4"
+          border.width: 1
+          color: "white"
+
+          property  int idx: 0
+          property int next: 0
+
+
+          Button {
+              id: autocom
+              width: parent.width
+              height: parent.height
+              Text {
+                  id: word
+                  width: parent.width
+                  height: parent.height
+                  color: "black"
+                  text: qsTr("Complete Your Word")
+              }
+              onClicked : myBackend.autoCompletionWordds(textArea.text)
+
+          }
+
+        }
 
 
 

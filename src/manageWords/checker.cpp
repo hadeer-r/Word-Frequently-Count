@@ -8,41 +8,36 @@ void Checker::addWord(const string &word)
     Trie.insert(word);
 }
 
-bool Checker:: isCorrect(const string& word) {
-    return Trie.search(word);
-}
-
-string Checker::autoCorrect(const string& word) {
-    string correctedWord = word;
-    for (char& c : correctedWord) {
-        if (isupper(c)) {
-            c = tolower(c);
-        }
-    }
-
-    if (isCorrect(correctedWord)) {
-        return correctedWord;
-    }
-
-    for (int i = 0; i < correctedWord.length(); ++i) {
-        trieNode* current = Trie.get_root();
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (correctedWord[i] != c) {
-                correctedWord[i] = c;
-                if (isCorrect(correctedWord)) {
-                    return correctedWord;
-                }
-                correctedWord[i] = word[i];
-            }
-            if (current != nullptr && current->children.count(c) > 0) {
-                current = current->children[c];
-            } else {
+vector<string> Checker::autoCorrect(const string &word)
+{
+    vector<string> suggestions;
+    if (Trie.search(word))
+        return suggestions;
+    string prefix = "";
+    for (size_t i = 0; i < word.size(); ++i)
+    {
+        if (i == 0)
+            prefix += word[i];
+        else
+        {
+            cout << prefix << "\n";
+            if (Trie.startsWith(prefix) && !Trie.startsWith(prefix + word[i]))
+            {
+                suggestions = autoComplete(prefix);
                 break;
             }
+
+            else
+            {
+                prefix += word[i];
+            }
+            if (i == (int)word.size() - 1 && Trie.startsWith(prefix))
+            {
+                suggestions = autoComplete(prefix);
+            }
         }
     }
-
-    return word;
+    return suggestions;
 }
 vector<string> Checker::autoComplete(const string &prefix) const
 {
@@ -55,9 +50,10 @@ vector<string> Checker::autoComplete(const string &prefix) const
         {
             return suggestions;
         }
+
         current = current->children[c];
     }
 
     Trie.dfs(current, prefix, "", suggestions);
     return suggestions;
-};
+}

@@ -13,25 +13,26 @@ using namespace std;
 class Manager
 {
 public:
-    Manager(const string& paragraph = "", const string& path = "");
-    int search(const string word) const;
-    vector<string> get_rank()const;
-    void set_rank();
+    Manager(const string& paragraph="");
+    int search(const string word);
+    string get_rank(string paragraph);
+    void set_rank(string paragraph);
 
-    vector<pair<string, int>> get_sorted() const;
-    void set_sorted();
+    string get_sorted(string paragraph) ;
+    void set_sorted(string paragraph);
 
-    bool startsWith(const string& prefix) const;
     void addWord(const string& word);
-    bool isCorrect(const string& word);
     string autoCorrect(const string& word);
-    vector<string> autoComplete(const string& prefix);
+    string autoWComplete(const string& prefix,int idx);
+    void updateTextInFile(string path,string paragraph);
+    string makeLine(string word,int freq,bool right);
 
 private:
     Words words;
     Checker manager_checker;
     vector<pair<string,int>> manager_words;
     vector<string> mananger_rank;
+    UploadText file_manager;
 };
 #endif // MANAGER_HPP
 
