@@ -17,7 +17,7 @@ displaying word frequencies and rankings.
 - **manages**: all component together to connect it with frontend
 ### Frontend
 - the project frontend Based in **QML** 
-- **QML (Qt Modeling Language)**is a powerful and expressive markup language designed for creating
+- **QML (Qt Modeling Language)**: is a powerful and expressive markup language designed for creating
 user interfaces (UIs) in Qt applications
 ### How To Use the project
 
